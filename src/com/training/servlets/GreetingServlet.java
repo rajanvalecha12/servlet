@@ -2,33 +2,49 @@ package com.training.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
+
+
+
+
 /**
  * Servlet implementation class GreetingServlet
  */
 public class GreetingServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	Logger log=Logger.getLogger(this.getClass().getName(),null);
        
     /**
      * @see HttpServlet#HttpServlet()
      */
     public GreetingServlet() {
         super();
-        // TODO Auto-generated constructor stub
+      log.info("==constructor called==");
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		log.info("Vendor -Request Object:"+request.getClass().toString());
+		log.info("Vendor -Response Object:"+response.getClass().toString());
 		PrintWriter out=response.getWriter();
 		response.setContentType("text/html");
+		
+		String user=request.getParameter("userName");
+		String pword=request.getParameter("passWord");
+		String role=request.getParameter("role");
+		User usr=new User(user,pword,role);
 		out.println("<h1 style='text-align:center'>Welcome to servlet programming</h1>");
+		out.println("welcome:"+role +":"+user);
 	}
 
 	/**

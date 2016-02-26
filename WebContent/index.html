@@ -2,13 +2,76 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Wok Inc.</title>
+<link href="css/Styles.css" type="text/css" rel="stylesheet"></link>
 </head>
 <body>
-<nav>
-<ul>
-<li><a href="greet">First Example</a></li>
-</ul>
-</nav>
+	<header>
+		<div id="hdLeft">
+			<img alt="LOGO" src="images/Grapes.jpg" align="bottom" ></img>
+		</div>
+		<div id="hdRight" align="center">
+			<h1>Grapes Restuarant</h1>
+		</div>
+	</header>
+<p>
+	<nav>
+		<ul>
+			<li><a href="Home.html">Home</a></li>
+			<li><a href="Book.html">Book</a></li>
+			<li><a href="Order.html">Order</a></li>
+			<li><a href="Review.html">Review</a></li>
+			<li><a href="Contact.html">Contact</a></li>
+			<li><A HREF="#PassWord"> references </A></li>
+		</ul>
+	</nav>
+	<section>
+		<form action="greet" method="get">
+			<table>
+				<tr>
+					<td><label>Username</label></td>
+					<td><input id="uname" type="text" name="userName" placeholder="Username"></td>
+				</tr>
+			
+				<tr>
+					<td><label>Password</label></td>
+					<td><input type="password" name="passWord"></td>
+				</tr>
+				<tr>
+					<td><label>Telephone</label></td>
+					<td><input type="tel" name="tel" pattern="\d{3}-\d{4}-\d{3}" placeholder="999-9999-999"></td>
+				</tr>
+				<tr>
+					<td><label>Role</label></td>
+					<td>
+					<select name="role">
+						<option value="ADM">Administrator</option>
+						<option value="CHF">Chef</option>
+						<option value="WTR">Waiter</option>
+						<option value="MGR">Manager</option>	
+					</select>
+					</td>
+				</tr>
+				
+				<tr>
+					<td colspan="2"><input type="submit" value="Login"></td>
+				</tr>
+			</table>
+		</form>	
+	</section>
+	<script type="text/javascript">var element=document.getElementById("uname");
+element.addEventListener('copy', function(event){
+	event.preventDefault();
+	alert("copy not allowed");
+});
+element.addEventListener('paste', function(event){
+	event.preventDefault();
+	alert("paste not allowed");
+});
+document.addEventListener('contextmenu', function(event){
+	event.preventDefault();
+	alert("RightClick not allowed");
+});
+</script>
 </body>
 </html>
